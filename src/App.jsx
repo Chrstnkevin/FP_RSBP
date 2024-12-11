@@ -7,7 +7,6 @@ const App = () => {
 
   return (
     <div>
-      <h1>BPMN Diagram Generator</h1>
       <DiagramForm onDiagramGenerated={setImageUrl} />
       <GeneratedDiagram imageUrl={imageUrl} />
     </div>

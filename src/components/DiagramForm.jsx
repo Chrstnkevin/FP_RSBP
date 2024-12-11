@@ -25,19 +25,56 @@ const DiagramForm = ({ onDiagramGenerated }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="description">Enter Process Description:</label>
-      <input
-        type="text"
-        id="description"
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
-        required
-      />
-      <button type="submit" disabled={loading}>
-        {loading ? "Generating..." : "Generate Diagram"}
-      </button>
-    </form>
+    <div style={{
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
+      height: "100vh",
+      background: "#121212",
+      color: "white",
+      fontFamily: "Arial, sans-serif",
+    }}>
+      <h1 style={{ fontSize: "3rem", marginBottom: "1rem" }}>Generate BPMN Diagram dengan Fitur Kami</h1>
+      <p style={{ fontSize: "1rem", marginBottom: "2rem" }}>Untuk Memenuhi Tugas FP RSBP Kelompok 6</p>
+      <form 
+        onSubmit={handleSubmit} 
+        style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "100%", maxWidth: "700px" }}>
+        <input
+          type="text"
+          id="description"
+          placeholder="Masukkan BPMN Diagram yang akan dibuat"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          required
+          style={{
+            flex: "1",
+            padding: "12px",
+            borderRadius: "8px",
+            border: "1px solid #333",
+            marginRight: "10px",
+            fontSize: "1rem",
+            backgroundColor: "#1e1e1e",
+            color: "white",
+          }}
+        />
+        <button
+          type="submit"
+          disabled={loading}
+          style={{
+            padding: "12px 24px",
+            borderRadius: "8px",
+            border: "1px solid #6a5acd",
+            backgroundColor: loading ? "#444" : "#6a5acd",
+            color: "white",
+            fontSize: "1rem",
+            cursor: loading ? "not-allowed" : "pointer",
+          }}
+        >
+          {loading ? "Generating..." : "Generate Sekarang"}
+        </button>
+      </form>
+    </div>
   );
 };
 
